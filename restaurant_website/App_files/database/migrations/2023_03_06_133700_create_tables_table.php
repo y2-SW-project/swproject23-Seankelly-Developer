@@ -9,16 +9,15 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+
     public function up(): void
     {
-        Schema::create('bookings', function (Blueprint $table) {
+        Schema::create('tables', function (Blueprint $table) {
             $table->id();
-            $table->string('First Name');
-            $table->string('Last Name');
-            $table->string('Restaurant Name');
-            $table->date('Date');
-            $table->time('Time');
-            $table->string('Special Requests');
+            $table->foreignId('restaurant_id')->constrained('restaurants');
+            $table->string('table_number');
+            $table->unsignedSmallInteger('capacity');
+            $table->boolean('is_available')->default(true);
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('bookings');
+        Schema::dropIfExists('tables');
     }
 };
