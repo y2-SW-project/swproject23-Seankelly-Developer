@@ -78,7 +78,7 @@ class RestaurantFactory extends Factory
             'county' => $this->faker->randomElement(['Carlow', 'Cavan', 'Clare', 'Cork', 'Donegal', 'Dublin', 'Galway', 'Kerry', 'Kildare', 'Kilkenny', 'Laois', 'Leitrim', 'Limerick', 'Longford', 'Louth', 'Mayo', 'Meath', 'Monaghan', 'Offaly', 'Roscommon', 'Sligo', 'Tipperary', 'Waterford', 'Westmeath', 'Wexford', 'Wicklow']),
             'rating' => $this->faker->numberBetween(1, 5),
             'bio' => $this->faker->text,
-            'Price-range' => $this->faker->numberBetween(1, 5),
+            'Price_range' => $this->faker->numberBetween(1, 5),
         ];
     }
 }

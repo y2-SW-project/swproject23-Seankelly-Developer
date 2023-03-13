@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('County');
             $table->integer('Rating');
             $table->string('Bio');
-            $table->integer('Price-range');
+            $table->integer('Price_range');
             $table->timestamps();
         });
     }
