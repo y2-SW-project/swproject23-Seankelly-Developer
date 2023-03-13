@@ -19,6 +19,13 @@ Route::get('/restaurants', [App\Http\Controllers\RestaurantController::class, 'i
 
 
 
+Route::get('/reservations', [App\Http\Controllers\ReservationsController::class, 'create'])->name('reservations.create');
+
+
+Route::post('/reservations', [App\Http\Controllers\ReservationsController::class, 'store'])->name('reservations.store');
+
+
+
 
 
 

@@ -22,9 +22,13 @@
                             <img src="{{ url('storage/viewAll.jpg') }}" class="card-img-top" alt="..."> <!-- This is the image of the restaurant -->
                             <div class="card-body">
                                 <h2 class="card-title">{{ $restaurant->Name }}</h2> <!-- This is the name of the restaurant -->
-                                <p class="card-text">{{ $restaurant->Cuisine }} | {{ $restaurant->County }} | {{ $restaurant->Price_range }}</p> <!-- This is the cuisine, county and price range of the restaurant -->
+                                <p class="card-text">{{ $restaurant->Cuisine }} | {{ $restaurant->County }} | 
+                                    @for ($i = 0; $i < $restaurant->Price_range; $i++)
+                                        €
+                                    @endfor
+                                </p> <!-- This is the cuisine, county and price range of the restaurant -->
                                 <p class="card-text">{{ $restaurant->Bio }}</p> <!-- This is the bio/description of the restaurant -->
-                                <a href="#" class="btn btn-primary">Book Now</a> <!-- This button is used to book the restaurant -->
+                                <a href="{{ route('reservations.create') }}" class="btn btn-primary">Book Now</a> <!-- This button is used to book the restaurant -->
                             </div>
                         </div>
                     </div>
