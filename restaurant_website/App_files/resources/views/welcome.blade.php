@@ -16,7 +16,7 @@
             <div class="col-sm-6">
             <div class="card">
             <a href="{{ route('Restaurants.index') }}">
-            <img src="{{ url('public/storage/viewAll.jpg') }}" class="card-img-top" alt="...">
+            <img src="{{ url('storage/viewAll.jpg') }}" class="card-img-top" alt="...">
             <div class="card-body">
             <h5 class="card-title">View All Restaurants!</h5>
 </div>
