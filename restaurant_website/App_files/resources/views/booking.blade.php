@@ -32,12 +32,12 @@
     
         <div class="form-group">
             <label for="customer_name">Name:</label>
-            <input type="text" name="customer_name" class="form-control" required>
+            <input type="text" name="customer_name" class="form-control" value="{{ Auth::user()->name }}" required>
         </div>
-    
+        
         <div class="form-group">
             <label for="customer_email">Email:</label>
-            <input type="email" name="customer_email" class="form-control" required>
+            <input type="email" name="customer_email" class="form-control" value="{{ Auth::user()->email }}" required>
         </div>
     
         <div class="form-group">
