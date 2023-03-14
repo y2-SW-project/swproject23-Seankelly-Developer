@@ -15,9 +15,9 @@ class MenuItemsTableSeeder extends Seeder
     {
         $restaurants = Restaurant::all();
 
-        foreach ($restaurants as $Restaurant) {
-            Menu_Item::factory()->count(10)->create([
-                'restaurant_id' => $Restaurant->id,
+        foreach ($restaurants as $restaurant) {
+            Menu_Item::factory()->times(10)->create([
+                'restaurant_id' => $restaurant->id,
             ]);
         }
     }
