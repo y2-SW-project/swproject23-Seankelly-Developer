@@ -25,7 +25,7 @@ class ReservationsController extends Controller
 
         Reservation::create($validatedData);
 
-        return redirect()->back()->with('success', 'Reservation created successfully.');
+        return redirect()->route('welcome')->with('success', 'Booking sent successfully.');
     }
 
     public function create(Restaurant $restaurant)
