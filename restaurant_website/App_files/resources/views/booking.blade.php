@@ -21,14 +21,6 @@
         <input type="hidden" name="restaurants_id" value="{{ $restaurants_id }}">
         @csrf
     
-        {{-- <div class="form-group">
-            <label for="table_id">Table Number:</label>
-            <select name="table_id" class="form-control">
-                @foreach ($tables as $table)
-                    <option value="{{ $table->id }}">{{ $table->number }}</option>
-                @endforeach
-            </select>
-        </div> --}}
     
         <div class="form-group">
             <label for="customer_name">Name:</label>
