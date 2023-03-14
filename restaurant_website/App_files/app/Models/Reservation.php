@@ -10,3 +10,4 @@ class Reservation extends Model
     use HasFactory;
     protected $guarded = [];
 }
+
