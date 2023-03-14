@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('table_id');
+            $table->unsignedBigInteger('restaurants_id');
             $table->string('customer_name');
             $table->string('customer_email');
             $table->string('customer_phone');
@@ -21,7 +21,7 @@ return new class extends Migration
             $table->dateTime('reservation_time');
             $table->text('special_requests')->nullable();
             $table->timestamps();
-            $table->foreign('table_id')->references('id')->on('tables')->onDelete('cascade');
+            $table->foreign('restaurants_id')->references('id')->on('restaurants')->onDelete('cascade');
         });
     }
 
