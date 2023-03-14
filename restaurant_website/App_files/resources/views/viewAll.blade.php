@@ -28,7 +28,8 @@
                                     @endfor
                                 </p> <!-- This is the cuisine, county and price range of the restaurant -->
                                 <p class="card-text">{{ $restaurant->Bio }}</p> <!-- This is the bio/description of the restaurant -->
-                                <a href="{{ route('reservations.create') }}" class="btn btn-primary">Book Now</a> <!-- This button is used to book the restaurant -->
+                                <a href="{{ route('reservations.create', $restaurant->id) }}" class="btn btn-primary">Book Now</a>
+                            <!-- This button is used to book the restaurant -->
                             </div>
                         </div>
                     </div>

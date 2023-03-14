@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Reservation;
 
 use Illuminate\Http\Request;
+use App\Models\Restaurant;
 
 class ReservationsController extends Controller
 {
@@ -24,8 +25,10 @@ class ReservationsController extends Controller
 
         return redirect()->back()->with('success', 'Reservation created successfully.');
     }
-    public function create()
+    public function create(Restaurant $restaurant)
     {
-        return view('booking');
+        return view('booking', [
+            'restaurant' => $restaurant
+        ]);
     }
 }

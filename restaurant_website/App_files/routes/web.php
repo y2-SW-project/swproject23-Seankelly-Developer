@@ -19,7 +19,7 @@ Route::get('/restaurants', [App\Http\Controllers\RestaurantController::class, 'i
 
 
 
-Route::get('/reservations', [App\Http\Controllers\ReservationsController::class, 'create'])
+Route::get('/reservations/{restaurant}', [App\Http\Controllers\ReservationsController::class, 'create'])
     ->name('reservations.create')
     ->middleware('auth');
 

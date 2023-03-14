@@ -2,11 +2,16 @@
 
 @section('content') <!-- This section defines the content of the page -->
 
-<header class="bg-light"> <!-- This is the header section of the page with a light background color -->
+<header class="bg-light">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="text-center display-4 py-5"> Make a booking</h1> <!-- This is the title of the page -->
+                <h1 class="text-center display-4 py-5">{{ $restaurant->Name }}</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="text-center">{{ $restaurant->Cuisine }} | {{ $restaurant->County }}</p>
             </div>
         </div>
     </div>
