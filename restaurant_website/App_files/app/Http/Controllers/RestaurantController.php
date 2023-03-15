@@ -42,6 +42,17 @@ class RestaurantController extends Controller
         //
     }
 
+    public function search(Request $request)
+    {
+        $query = $request->input('q');
+
+        $restaurants = Restaurant::where('Name', 'like', "%$query%")
+            ->orWhere('Cuisine', 'like', "%$query%")
+            ->orWhere('County', 'like', "%$query%")
+            ->get();
+
+        return view('searchResults', compact('restaurants', 'query'));
+    }
     /**
      * Show the form for editing the specified resource.
      */

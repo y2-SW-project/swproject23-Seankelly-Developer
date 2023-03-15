@@ -35,6 +35,12 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
+                        <!-- Search Bar -->
+                        <form action="{{ route('search') }}" method="GET" class="d-flex">
+                            <input class="form-control me-2" type="search" name="q" placeholder="Search restaurants" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))

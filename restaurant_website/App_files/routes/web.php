@@ -13,6 +13,7 @@ Route::get('/', function () {
 
 Route::get('/restaurants/{id}/menu', [MenuItemsController::class, 'show'])->name('menus.show');
 
+Route::get('/search', 'App\Http\Controllers\RestaurantController@search')->name('search');
 
 
 Route::resource('/Restaurants', 'RestaurantController');
