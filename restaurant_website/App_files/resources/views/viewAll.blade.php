@@ -27,7 +27,8 @@
                                 </p>
                                 <p class="card-text">{{ $restaurant->Bio }}</p>
                                 <a href="{{ route('reservations.create', $restaurant->id) }}" class="btn btn-primary">Book Now</a>
-                                <a href="#" class="btn btn-secondary">View Menu</a> <!-- Add a new button to view the restaurant's menu -->
+                                <a href="{{ route('menus.show', $restaurant->id) }}" class="btn btn-secondary">View Menu</a>
+                                <!-- Add a new button to view the restaurant's menu -->
 
 
                                 {{-- {{ route('menus.show', $restaurant->id) }} --}}

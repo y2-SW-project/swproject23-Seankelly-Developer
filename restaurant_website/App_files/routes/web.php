@@ -1,15 +1,18 @@
 <?php
 
 use App\Http\Controllers\RestaurantController;
+use App\Http\Controllers\MenuItemsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
 
 
 
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
+
+Route::get('/restaurants/{id}/menu', [MenuItemsController::class, 'show'])->name('menus.show');
+
 
 
 Route::resource('/Restaurants', 'RestaurantController');
