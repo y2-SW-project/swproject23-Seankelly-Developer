@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call([
             MenuItemsTableSeeder::class,
         ]);
+        $this->call(LocationSeeder::class);
     }
 }

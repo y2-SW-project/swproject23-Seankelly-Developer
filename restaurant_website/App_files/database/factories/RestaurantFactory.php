@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Location;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -79,6 +80,10 @@ class RestaurantFactory extends Factory
             'rating' => $this->faker->numberBetween(1, 5),
             'bio' => $this->faker->text,
             'Price_range' => $this->faker->numberBetween(1, 5),
+
+            'location_id' => function () {
+                return Location::all()->random()->id;
+            },
         ];
     }
 }
