@@ -19,10 +19,9 @@ return new class extends Migration
             $table->integer('Rating');
             $table->string('Bio');
             $table->integer('Price_range');
-            $table->dropColumn('location_id');
             $table->unsignedBigInteger('location_id');
-            $table->timestamps();
             $table->foreign('location_id')->references('id')->on('locations');
+            $table->timestamps();
         });
     }
 

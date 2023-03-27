@@ -13,10 +13,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call(LocationSeeder::class);
         $this->call(RestaurantSeeder::class);
         $this->call([
             MenuItemsTableSeeder::class,
         ]);
-        $this->call(LocationSeeder::class);
     }
 }
