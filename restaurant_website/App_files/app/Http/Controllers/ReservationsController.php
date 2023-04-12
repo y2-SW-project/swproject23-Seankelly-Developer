@@ -27,6 +27,19 @@ class ReservationsController extends Controller
 
         return redirect()->route('welcome')->with('success', 'Booking sent successfully.');
     }
+    public function getUserReservations()
+    {
+        return $this->where('customer_name', auth()->user()->name)->get();
+    }
+
+    // ReservationController.php
+
+    public function userReservations()
+    {
+        $reservations = Reservation::getUserReservations();
+        return view('userReservations', compact('reservations'));
+    }
+
 
     public function create(Restaurant $restaurant)
     {

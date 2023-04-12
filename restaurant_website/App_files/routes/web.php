@@ -16,6 +16,11 @@ Route::get('/restaurants/{id}/menu', [MenuItemsController::class, 'show'])->name
 Route::get('/search', 'App\Http\Controllers\RestaurantController@search')->name('search');
 
 
+// web.php
+
+Route::get('/reservations/user', [ReservationController::class, 'userReservations'])->name('reservations.user');
+
+
 Route::resource('/Restaurants', 'RestaurantController');
 
 

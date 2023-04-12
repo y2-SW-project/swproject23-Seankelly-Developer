@@ -13,5 +13,7 @@ class MenuItemsController extends Controller
         $restaurant = Restaurant::findOrFail($id);
         $menuItems = Menu_Item::where('restaurant_id', $id)->get();
         return view('menus.show', compact('restaurant', 'menuItems'));
+
+        //$userName = User::where('')
     }
 }
