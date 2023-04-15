@@ -19,4 +19,8 @@ class Reservation extends Model
     {
         return $this->belongsTo(Restaurant::class);
     }
+    public function scopeUserReservations($query)
+    {
+        return $query->where('customer_name', auth()->user()->name);
+    }
 }

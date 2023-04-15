@@ -16,9 +16,12 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     @auth
-                    <x-nav-link :href="route('reservations.index')" :active="request()->routeIs('reservations.index')">
-                        {{ __('Reservations') }}
-                    </x-nav-link>
+                        <x-nav-link :href="route('reservations.index')" :active="request()->routeIs('reservations.index')">
+                            {{ __('Reservations') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('reservations.user')" :active="request()->routeIs('reservations.user')">
+                            {{ __('My Reservations') }}
+                        </x-nav-link>
                     @endauth
                 </div>
             </div>

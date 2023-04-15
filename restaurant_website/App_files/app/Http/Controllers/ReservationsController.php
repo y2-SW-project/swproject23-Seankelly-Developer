@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reservation;
-
-use Illuminate\Http\Request;
 use App\Models\Restaurant;
+use Illuminate\Http\Request;
 
 class ReservationsController extends Controller
 {
@@ -18,36 +17,28 @@ class ReservationsController extends Controller
             'number_of_guests' => 'required|integer|min:1|max:10',
             'reservation_time' => 'required|date',
             'special_requests' => 'nullable|string',
-            'restaurants_id' => 'required|integer',
+            'restaurant_id' => 'required|integer',
         ]);
 
-        $validatedData['restaurants_id'] = $request->restaurants_id;
+        $validatedData['restaurant_id'] = $request->restaurant_id;
 
         Reservation::create($validatedData);
 
         return redirect()->route('welcome')->with('success', 'Booking sent successfully.');
     }
-    public function getUserReservations()
-    {
-        return $this->where('customer_name', auth()->user()->name)->get();
-    }
-
-    // ReservationController.php
 
     public function userReservations()
     {
-        $reservations = Reservation::getUserReservations();
+        $reservations = Reservation::userReservations()->get();
         return view('userReservations', compact('reservations'));
     }
-
-
     public function create(Restaurant $restaurant)
     {
         $tables = $restaurant->tables;
 
         return view('booking', [
             'restaurant' => $restaurant,
-            'restaurants_id' => $restaurant->id,
+            'restaurant_id' => $restaurant->id,
         ]);
     }
 }
