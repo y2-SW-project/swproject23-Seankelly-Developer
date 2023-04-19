@@ -17,6 +17,11 @@ class Reservation extends Model
     {
         return self::where('customer_name', auth()->user()->name)->orderBy('reservation_time', 'desc')->get();
     }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 
     public function restaurant()
     {

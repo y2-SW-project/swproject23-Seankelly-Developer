@@ -16,6 +16,13 @@ Route::get('/restaurants/{id}/menu', [MenuItemsController::class, 'show'])->name
 
 Route::get('/search', 'App\Http\Controllers\RestaurantController@search')->name('search');
 
+// web.php
+
+Route::get('/reservations/{reservation}/edit', [ReservationsController::class, 'edit'])->name('reservations.edit');
+Route::put('/reservations/{reservation}', [ReservationsController::class, 'update'])->name('reservations.update');
+Route::delete('/reservations/{reservation}', [ReservationsController::class, 'destroy'])->name('reservations.destroy');
+
+
 
 // web.php
 
@@ -37,11 +44,6 @@ Route::get('/reservations/{restaurant}', [App\Http\Controllers\ReservationsContr
     ->middleware('auth');
 
 Route::post('/reservations', [App\Http\Controllers\ReservationsController::class, 'store'])->name('reservations.store');
-
-
-
-
-
 
 
 
