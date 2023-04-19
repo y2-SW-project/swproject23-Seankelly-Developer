@@ -87,9 +87,12 @@ class RestaurantController extends Controller
     //HERE 
     public function popular()
     {
-        $restaurants = Restaurant::inRandomOrder()->limit(10)->get();
-        return view('popular', compact('restaurants'));
+        $popularRestaurants = Restaurant::inRandomOrder()->take(6)->get();
+
+        return view('popular', compact('popularRestaurants'));
     }
+
+
 
 
 

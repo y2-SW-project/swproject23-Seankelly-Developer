@@ -32,7 +32,7 @@
                                 <!-- Add a new button to view the restaurant's menu -->
 
 
-                                {{ route('menus.show', $restaurant->id) }}
+                               
 
                             </div>
                         </div>
