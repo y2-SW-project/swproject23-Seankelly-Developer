@@ -8,6 +8,7 @@
                 <h1 class="text-center display-4 py-5"> There's something for everyone!</h1>
             </div>
         </div>
+
     </div>
 </header>
 <div class="container my-5">
@@ -17,7 +18,7 @@
                 @foreach ($restaurants as $restaurant)
                     <div class="col-sm-6">
                         <div class="card">
-                            <img src="{{ url('storage/viewAll.jpg') }}" class="card-img-top" alt="...">
+                            <img src="{{ url('/images/' . $restaurant->image) }}" class="card-img-top restaurant-image" alt="...">
                             <div class="card-body">
                                 <h2 class="card-title">{{ $restaurant->Name }}</h2>
                                 <p class="card-text">{{ $restaurant->Cuisine }} | {{ $restaurant->County }} | 

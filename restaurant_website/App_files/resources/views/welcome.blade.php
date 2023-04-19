@@ -35,4 +35,41 @@
 </div>
 </div>
 </div>
+
+<div class="row justify-content-center mt-5">
+    <div class="col-12 text-center mb-4">
+        <h2 class="fw-bold">Favorites</h2>
+    </div>
+    <div class="col-md-4">
+        <a href="#">
+            <div class="card p-3">
+                <img src="{{ url('/images/image ('. rand(1, 86) .').jpg') }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold mb-0">Italians</h5>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a href="#">
+            <div class="card p-3">
+                <img src="{{ url('/images/image ('. rand(1, 86) .').jpg') }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold mb-0">Mexican</h5>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a href="#">
+            <div class="card p-3">
+                <img src="{{ url('/images/image ('. rand(1, 86) .').jpg') }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold mb-0">Indian</h5>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
 @endsection
