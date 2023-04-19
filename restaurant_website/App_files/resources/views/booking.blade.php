@@ -1,6 +1,6 @@
-@extends('layouts.app') <!-- This line extends the main layout from the app.blade.php file -->
+@extends('layouts.app')
 
-@section('content') <!-- This section defines the content of the page -->
+@section('content')
 
 <header class="bg-light">
     <div class="container">
@@ -16,55 +16,47 @@
         </div>
     </div>
 </header>
-<div class="container my-5"> <!-- This container holds the content of the page -->
-    <form method="POST" action="{{ route('reservations.store') }}">
-        <input type="hidden" name="restaurant_id" value="{{ $restaurant->id }}">
 
+<div class="container my-5">
+    <form method="POST" action="{{ route('reservations.store') }}" class="row g-3">
+        <input type="hidden" name="restaurant_id" value="{{ $restaurant->id }}">
         @csrf
     
-    
-        <div class="form-group">
-            <label for="customer_name">Name:</label>
+        <div class="col-md-6">
+            <label for="customer_name" class="form-label">Name:</label>
             <input type="text" name="customer_name" class="form-control" value="{{ Auth::user()->name }}" required>
         </div>
         
-        <div class="form-group">
-            <label for="customer_email">Email:</label>
+        <div class="col-md-6">
+            <label for="customer_email" class="form-label">Email:</label>
             <input type="email" name="customer_email" class="form-control" value="{{ Auth::user()->email }}" required>
         </div>
     
-        <div class="form-group">
-            <label for="customer_phone">Phone:</label>
+        <div class="col-md-6">
+            <label for="customer_phone" class="form-label">Phone:</label>
             <input type="tel" name="customer_phone" class="form-control" required>
         </div>
     
-        <div class="form-group">
-            <label for="number_of_guests">Number of Guests:</label>
+        <div class="col-md-6">
+            <label for="number_of_guests" class="form-label">Number of Guests:</label>
             <input type="number" name="number_of_guests" class="form-control" min="1" max="10" required>
         </div>
     
-        <div class="form-group">
-            <label for="reservation_time">Reservation Time:</label>
+        <div class="col-md-6">
+            <label for="reservation_time" class="form-label">Reservation Time:</label>
             <input type="datetime-local" name="reservation_time" class="form-control" required>
         </div>
     
-        <div class="form-group">
-            <label for="special_requests">Special Requests:</label>
+        <div class="col-md-6">
+            <label for="special_requests" class="form-label">Special Requests:</label>
             <textarea name="special_requests" class="form-control"></textarea>
         </div>
     
-        <button type="submit" class="btn btn-primary">Submit Reservation</button>
-    </form>
-    
-    
-</div>
-<footer class="bg-dark text-light py-3"> <!-- This is the footer section of the page with a dark background color -->
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <p>&copy; {{ date('Y') }} Restaurant Listings</p> <!-- This displays the current year and the name of the website -->
-            </div>
+        <div class="col-12 text-center">
+            <button type="submit" class="btn btn-primary">Submit Reservation</button>
         </div>
-    </div>
-</footer>
-@endsection <!-- This closes the content section of the page -->
+    </form>
+</div>
+
+
+@endsection

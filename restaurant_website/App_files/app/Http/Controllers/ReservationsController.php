@@ -36,6 +36,7 @@ class ReservationsController extends Controller
 
 
         Reservation::create($validatedData);
+        return redirect()->route('userReservations')->with('success', 'Reservation has been made successfully.');
     }
 
     public function destroy(Reservation $reservation)
@@ -111,9 +112,7 @@ class ReservationsController extends Controller
     {
         $tables = $restaurant->tables;
 
-        return view('booking', [
-            'restaurant' => $restaurant,
-            'restaurant_id' => $restaurant->id,
-        ]);
+        // Pass the $restaurant and $tables data to the booking view
+        return view('booking', compact('restaurant', 'tables'));
     }
 }

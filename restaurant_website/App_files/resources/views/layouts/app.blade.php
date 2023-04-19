@@ -21,7 +21,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Eat-Up') }}
+                    EatUp
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -82,5 +82,55 @@
             @yield('content')
         </main>
     </div>
+    <footer class="bg-light text-center text-lg-start">
+        <div class="container p-4">
+          <div class="row">
+            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+              <h5 class="text-uppercase">About EatUp</h5>
+      
+              <p>
+                EatUp is a platform that connects foodies with their favorite restaurants. With a focus on making the dining experience as smooth and enjoyable as possible, we aim to provide our users with the best possible service.
+              </p>
+            </div>
+      
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+              <h5 class="text-uppercase">Links</h5>
+      
+              <ul class="list-unstyled mb-0">
+                <li>
+                  <a href="#!" class="text-dark">Privacy Policy</a>
+                </li>
+                <li>
+                  <a href="#!" class="text-dark">Terms of Service</a>
+                </li>
+                <li>
+                  <a href="#!" class="text-dark">Contact Us</a>
+                </li>
+              </ul>
+            </div>
+      
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+              <h5 class="text-uppercase">Connect With Us</h5>
+      
+              <ul class="list-unstyled">
+                <li>
+                  <a href="#!" class="text-dark"><i class="bi bi-facebook"></i> Facebook</a>
+                </li>
+                <li>
+                  <a href="#!" class="text-dark"><i class="bi bi-twitter"></i> Twitter</a>
+                </li>
+                <li>
+                  <a href="#!" class="text-dark"><i class="bi bi-instagram"></i> Instagram</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          &copy; {{ date('Y') }} EatUp. All rights reserved.
+        </div>
+      </footer>
+      
 </body>
 </html>
