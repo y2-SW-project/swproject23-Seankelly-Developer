@@ -4,23 +4,22 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Reservation extends Model
 {
     use HasFactory;
     protected $guarded = [];
 
-    public function getUserReservations()
+
+
+    public static function userReservations()
     {
-        return $this->where('customer_name', auth()->user()->name)->get();
+        return self::where('customer_name', auth()->user()->name)->orderBy('reservation_time', 'desc')->get();
     }
 
     public function restaurant()
     {
         return $this->belongsTo(Restaurant::class);
-    }
-    public function scopeUserReservations($query)
-    {
-        return $query->where('customer_name', auth()->user()->name);
     }
 }

@@ -3,6 +3,7 @@
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\MenuItemsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReservationsController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -18,7 +19,10 @@ Route::get('/search', 'App\Http\Controllers\RestaurantController@search')->name(
 
 // web.php
 
-Route::get('/reservations/user', [ReservationController::class, 'userReservations'])->name('reservations.user');
+Route::get('/reservations/user', function () {
+    $reservations = \App\Models\Reservation::userReservations();
+    return view('userReservations', compact('reservations'));
+})->name('userReservations');
 
 
 Route::resource('/Restaurants', 'RestaurantController');

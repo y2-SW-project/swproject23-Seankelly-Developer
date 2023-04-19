@@ -18,7 +18,7 @@
 </header>
 <div class="container my-5"> <!-- This container holds the content of the page -->
     <form method="POST" action="{{ route('reservations.store') }}">
-        <input type="hidden" name="restaurants_id" value="{{ $restaurant->id }}">
+        <input type="hidden" name="restaurant_id" value="{{ $restaurant->id }}">
 
         @csrf
     
