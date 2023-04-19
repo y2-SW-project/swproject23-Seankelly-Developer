@@ -24,6 +24,9 @@
             <img src="{{ url('storage/viewAll.jpg') }}" class="card-img-top" alt="...">
             <div class="card-body">
             <h5 class="card-title">View All Restaurants!</h5>
+            @if(auth()->check())
+    <a href="{{ route('userReservations') }}" class="btn btn-primary">My Reservations</a>
+@endif
 </div>
 </a>
 </div>

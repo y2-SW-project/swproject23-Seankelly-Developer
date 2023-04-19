@@ -3,6 +3,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
+                
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
@@ -15,22 +16,8 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    @auth
-                        <x-nav-link :href="route('reservations.index')" :active="request()->routeIs('reservations.index')">
-                            {{ __('Reservations') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('reservations.user')" :active="request()->routeIs('reservations.user')">
-                            {{ __('My Reservations') }}
-                        </x-nav-link>
-                        @auth
-    <x-nav-link :href="route('reservations.index')" :active="request()->routeIs('reservations.index')">
-        {{ __('Reservations') }}
-    </x-nav-link>
-    <x-nav-link :href="route('reservations.user')" :active="request()->routeIs('reservations.user')">
-        {{ __('My Reservations') }}
-    </x-nav-link>
-@endauth
-                    @endauth
+                    
+    
                 </div>
             </div>
 
@@ -58,11 +45,20 @@
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
-                            <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Log Out') }}
-                            </x-dropdown-link>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                @if(auth()->check())
+                                    <a class="dropdown-item" href="{{ route('reservations.user') }}">My Reservations</a>
+                                    <div class="dropdown-divider"></div>
+                                    <x-dropdown-link :href="route('logout')"
+                                                      onclick="event.preventDefault();
+                                                               this.closest('form').submit();">
+                                        {{ __('Log Out') }}
+                                    </x-dropdown-link>
+                                @else
+                                    <a class="dropdown-item" href="{{ route('login') }}">Log In</a>
+                                    <a class="dropdown-item" href="{{ route('register') }}">Register</a>
+                                @endif
+                              </div>
                         </form>
                     </x-slot>
                 </x-dropdown>
