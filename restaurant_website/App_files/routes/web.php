@@ -7,12 +7,23 @@ use App\Http\Controllers\ReservationsController;
 use Illuminate\Support\Facades\Route;
 
 
+Route::get('/italian', [RestaurantController::class, 'italian'])->name('Restaurant.italian');
 
+Route::get('/indian', [RestaurantController::class, 'indian'])->name('Restaurant.indian');
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+//HERE
+Route::get('/popular', [App\Http\Controllers\RestaurantController::class, 'popular'])->name('Restaurant.popular');
+
+
+
+
 Route::get('/restaurants/{id}/menu', [MenuItemsController::class, 'show'])->name('menus.show');
+
+Route::get('/mexican', [RestaurantController::class, 'mexican'])->name('Restaurant.mexican');
+
 
 Route::get('/search', 'App\Http\Controllers\RestaurantController@search')->name('search');
 
@@ -21,6 +32,9 @@ Route::get('/search', 'App\Http\Controllers\RestaurantController@search')->name(
 Route::get('/reservations/{reservation}/edit', [ReservationsController::class, 'edit'])->name('reservations.edit');
 Route::put('/reservations/{reservation}', [ReservationsController::class, 'update'])->name('reservations.update');
 Route::delete('/reservations/{reservation}', [ReservationsController::class, 'destroy'])->name('reservations.destroy');
+
+
+
 
 
 

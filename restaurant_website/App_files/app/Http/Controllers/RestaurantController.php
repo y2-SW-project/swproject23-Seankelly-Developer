@@ -68,6 +68,30 @@ class RestaurantController extends Controller
     {
         //
     }
+    public function italian()
+    {
+        $italianRestaurants = Restaurant::where('Cuisine', 'Italian')->get();
+        return view('italian', ['italianRestaurants' => $italianRestaurants]);
+    }
+    public function mexican()
+    {
+        $mexicanRestaurants = Restaurant::where('Cuisine', 'Mexican')->get();
+        return view('mexican', ['mexicanRestaurants' => $mexicanRestaurants]);
+    }
+    public function indian()
+    {
+        $indianRestaurants = Restaurant::where('Cuisine', 'Indian')->get();
+        return view('Indian', ['indianRestaurants' => $indianRestaurants]);
+    }
+
+    //HERE 
+    public function popular()
+    {
+        $restaurants = Restaurant::inRandomOrder()->limit(10)->get();
+        return view('popular', compact('restaurants'));
+    }
+
+
 
     /**
      * Remove the specified resource from storage.

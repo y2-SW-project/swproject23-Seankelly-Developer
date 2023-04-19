@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="text-center display-4 py-5"> There's something for everyone!</h1>
+                <h1 class="text-center display-4 py-5">Italian Restaurants</h1>
             </div>
         </div>
 
@@ -15,7 +15,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="row row-cols-1 row-cols-md-2 g-4">
-                @foreach ($restaurants as $restaurant)
+                @foreach ($italianRestaurants as $restaurant)
                     <div class="col-sm-6">
                         <div class="card">
                             <img src="{{ url('/images/' . $restaurant->image) }}" class="card-img-top restaurant-image" alt="...">
@@ -32,7 +32,7 @@
                                 <!-- Add a new button to view the restaurant's menu -->
 
 
-                                {{ route('menus.show', $restaurant->id) }}
+                                {{-- {{ route('menus.show', $restaurant->id) }} --}}
 
                             </div>
                         </div>

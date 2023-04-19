@@ -29,19 +29,19 @@
             <h2 class="fw-bold">Favorites</h2>
         </div>
         <div class="col-md-4">
-            <a href="#">
+            <a href="{{route('Restaurant.italian') }}">
                 <div class="card p-3">
-                    <img src="{{ url('/images/image ('. rand(1, 86) .').jpg') }}" class="card-img-top restaurant-image" alt="...">
+                    <img src="{{ url('/images/italian.jpg') }}" class="card-img-top restaurant-image" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title fw-bold mb-0">Italians</h5>
+                        <h5 class="card-title fw-bold mb-0">Italian</h5>
                     </div>
                 </div>
             </a>
         </div>
         <div class="col-md-4">
-            <a href="#">
+            <a href="{{ route('Restaurant.mexican') }}">
                 <div class="card p-3">
-                    <img src="{{ url('/images/image ('. rand(1, 86) .').jpg') }}" class="card-img-top restaurant-image" alt="...">
+                    <img src="{{ url('/images/mexican.jpg') }}" class="card-img-top restaurant-image" alt="...">
                     <div class="card-body">
                         <h5 class="card-title fw-bold mb-0">Mexican</h5>
                     </div>
@@ -49,15 +49,31 @@
             </a>
         </div>
         <div class="col-md-4">
-            <a href="#">
+            <a href="{{ route('Restaurant.indian') }}">
                 <div class="card p-3">
-                    <img src="{{ url('/images/image ('. rand(1, 86) .').jpg') }}" class="card-img-top restaurant-image" alt="...">
+                    <img src="{{ url('/images/indian.jpg') }}" class="card-img-top restaurant-image" alt="...">
                     <div class="card-body">
                         <h5 class="card-title fw-bold mb-0">Indian</h5>
                     </div>
                 </div>
             </a>
         </div>
+    </div>
+</div>
+<div class="row justify-content-center mt-5">
+    <div class="col-md-12 text-center mb-4">
+        <h2 class="fw-bold">Popular Restaurants</h2>
+        <p>Discover the hottest restaurants in town!</p>
+    </div>
+    <div class="col-md-6 col-lg-5">
+        <a href="{{ route('Restaurant.popular') }}">
+            <div class="card p-3">
+                <img src="{{ url('/images/popular.jpg') }}" class="card-img-top restaurant-image" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold mb-0">Popular Restaurants</h5>
+                </div>
+            </div>
+        </a>
     </div>
 </div>
 @endsection
