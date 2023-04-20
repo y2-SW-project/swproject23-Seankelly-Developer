@@ -8,11 +8,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Restaurant;
 
 class User extends Authenticatable
 {
 
     use HasApiTokens, HasFactory, Notifiable;
+
+
 
 
     public function reservations()
@@ -31,6 +34,10 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function restaurants()
+    {
+        return $this->hasMany(Restaurant::class);
+    }
     /**
      * The attributes that should be hidden for serialization.
      *

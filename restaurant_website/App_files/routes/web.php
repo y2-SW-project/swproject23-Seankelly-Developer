@@ -43,6 +43,12 @@ Route::get('/reservations/user', function () {
     return view('userReservations', compact('reservations'));
 })->name('userReservations');
 
+Route::get('/user-ads', [RestaurantController::class, 'getAds'])->name('userAds');
+
+Route::delete('/userAdvertisements/{id}', [App\Http\Controllers\RestaurantController::class, 'destroy'])->name('restaurants.destroy');
+
+Route::get('/userAdvertisements/{id}/edit', [App\Http\Controllers\RestaurantController::class, 'edit'])->name('restaurants.edit');
+Route::put('/userAdvertisements/{id}', [App\Http\Controllers\RestaurantController::class, 'update'])->name('restaurants.update');
 
 Route::resource('restaurants', RestaurantController::class);
 

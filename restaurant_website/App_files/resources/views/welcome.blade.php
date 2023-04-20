@@ -18,7 +18,15 @@
                         @auth
                             <a href="{{ route('userReservations') }}" class="btn btn-secondary ms-3">My Reservations</a>
                         @endauth
-                        <a href="{{ route('restaurants.create') }}" class="btn btn-primary">Create Advertisements</a>
+
+
+                        @auth
+                            @if(Auth::user()->role == 'restaurant owner')
+                                <a href="{{ route('restaurants.create') }}" class="btn btn-primary">Create Advertisements</a>
+                            <a href="{{ route('userAds') }}" class="btn btn-primary">My Advertisements</a>
+                        @endif
+                        
+                    @endauth
 
                     </div>
                 </div>

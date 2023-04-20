@@ -19,7 +19,13 @@ class Restaurant extends Model
         'price_range',
         'location_id',
         'image',
+        'user_id'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
 
     public function location()

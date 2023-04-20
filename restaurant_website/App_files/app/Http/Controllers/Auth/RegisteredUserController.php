@@ -14,6 +14,8 @@ use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
 
+use App\Models\Restaurant;
+
 class RegisteredUserController extends Controller
 {
     /**

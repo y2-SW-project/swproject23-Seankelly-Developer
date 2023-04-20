@@ -1,19 +1,30 @@
 <?php
 
+
+
 namespace App\Http\Controllers;
 
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use App\Models\Location;
 
+
+
 class RestaurantController extends Controller
 {
+
+
 
     public function index()
     {
         $restaurants = Restaurant::all();
         return view('viewAll', compact('restaurants'));
     }
+
+
     /**
      * Display a listing of the resource.
      */
@@ -34,18 +45,6 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
-        /*
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'cuisine' => 'required|string|max:255',
-            'county' => 'required|string|max:255',
-            'rating' => 'required|integer',
-            'bio' => 'required|string',
-            'price_range' => 'required|integer',
-            'location_id' => 'required|exists:locations,id',
-            'image' => 'nullable|image|max:2048',
-        ]);
-        dd($validatedData);*/
 
         $restaurant = new Restaurant;
         $restaurant->name = $request->input('Name');
@@ -56,12 +55,6 @@ class RestaurantController extends Controller
         $restaurant->price_range = 4;
         $restaurant->location_id = $request->input('Location_id');
 
-        // $restaurant->cuisine = $validatedData['Cuisine'];
-        // $restaurant->county = $validatedData['County'];
-        // $restaurant->rating = $validatedData['Rating'];
-        // $restaurant->bio = $validatedData['Bio'];
-        // $restaurant->price_range = 4;
-        // $restaurant->location_id = $validatedData['location_id'];
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -70,10 +63,14 @@ class RestaurantController extends Controller
             $restaurant->image = $filename;
         }
 
+        $image->storeAs('public\images', $filename);
+        $restaurant->user_id = Auth::id();
         $restaurant->save();
 
-        return redirect()->route('welcome');
+        return redirect()->route('Restaurants.index');
     }
+
+
 
 
 
@@ -99,18 +96,7 @@ class RestaurantController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
     public function italian()
     {
         $italianRestaurants = Restaurant::where('Cuisine', 'Italian')->get();
@@ -142,8 +128,42 @@ class RestaurantController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $restaurant = Restaurant::findOrFail($id);
+        $restaurant->delete();
+        return redirect()->route('userAds')->with('success', 'Advertisement deleted successfully');
+    }
+    public function getAds()
+    {
+        $user = auth()->user();
+
+        $restaurants = Restaurant::whereHas('user', function ($query) use ($user) {
+            $query->where('id', $user->id);
+        })->get();
+
+        // dd($restaurants);
+        return view('userAdvertisements', compact('restaurants'));
+    }
+    public function edit($id)
+    {
+        $restaurant = Restaurant::findOrFail($id);
+        return view('editAdvertisement', compact('restaurant'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $restaurant = Restaurant::find($id);
+        $restaurant->Name = $request->input('Name');
+        $restaurant->County = $request->input('County');
+        $restaurant->Bio = $request->input('Bio');
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->save(public_path('images/' . $filename));
+            $restaurant->image = $filename;
+        }
+        $restaurant->save();
+        return redirect('user-ads')->with('success', 'Advertisement updated successfully');
     }
 }
