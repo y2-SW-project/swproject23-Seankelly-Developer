@@ -44,7 +44,7 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-        if (Str::contains($user->email, '@example.com')) {
+        if (Str::contains($user->email, '@restaurants.com')) {
             $user->role = 'restaurant owner';
             $user->save();
         }

@@ -14,22 +14,18 @@
                     <h2 class="card-title fw-bold text-center mb-4">Book a Table, Savor the Moment</h2>
                     <p class="card-text text-center">Our restaurant booking web application is a game-changer for foodies and restaurateurs alike. With our platform, customers can discover new restaurants and book reservations in real-time, while restaurant owners can manage their bookings and customer relationships more efficiently. Our system also integrates with popular POS systems and provides detailed analytics to help restaurants optimize their operations. With our user-friendly interface and cutting-edge technology, we're revolutionizing the restaurant industry. Try us today and take your dining experience to the next level!</p>
                     <div class="text-center mt-5">
-                        <a href="{{ route('Restaurants.index') }}" class="btn btn-primary">View All Restaurants</a>
+                        <a href="{{ route('Restaurants.index') }}" class="btn btn-primary me-2 mb-3">View All Restaurants</a>
                         @auth
-                            <a href="{{ route('userReservations') }}" class="btn btn-secondary ms-3">My Reservations</a>
+                            <a href="{{ route('userReservations') }}" class="btn btn-secondary me-2 mb-3">My Reservations</a>
                         @endauth
-
-
+                    
                         @auth
                             @if(Auth::user()->role == 'restaurant owner')
-                                <a href="{{ route('restaurants.create') }}" class="btn btn-primary">Create Advertisements</a>
-                            <a href="{{ route('userAds') }}" class="btn btn-primary">My Advertisements</a>
-                            <a href="{{ route('viewBookings') }}" class="btn btn-primary">View Bookings</a>
-
-                        @endif
-                        
-                    @endauth
-
+                                <a href="{{ route('restaurants.create') }}" class="btn btn-primary me-2 mb-3">Create Advertisements</a>
+                                <a href="{{ route('userAds') }}" class="btn btn-primary me-2 mb-3">My Advertisements</a>
+                                <a href="{{ route('viewBookings') }}" class="btn btn-primary mb-3">View Bookings</a>
+                            @endif
+                        @endauth
                     </div>
                 </div>
             </div>

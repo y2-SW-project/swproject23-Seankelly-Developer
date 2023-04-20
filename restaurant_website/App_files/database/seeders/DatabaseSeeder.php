@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(LocationSeeder::class);
         $this->call(RestaurantSeeder::class);
         $this->call(MenuItemsTableSeeder::class);
+        $this->call(userSeeder::class);
 
         $restaurants = Restaurant::all();
 
