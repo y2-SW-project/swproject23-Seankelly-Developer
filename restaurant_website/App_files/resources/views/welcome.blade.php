@@ -18,6 +18,8 @@
                         @auth
                             <a href="{{ route('userReservations') }}" class="btn btn-secondary ms-3">My Reservations</a>
                         @endauth
+                        <a href="{{ route('restaurants.create') }}" class="btn btn-primary">Create Advertisements</a>
+
                     </div>
                 </div>
             </div>

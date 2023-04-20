@@ -14,6 +14,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+
 //HERE
 Route::get('/popular', [App\Http\Controllers\RestaurantController::class, 'popular'])->name('Restaurant.popular');
 
@@ -25,6 +26,7 @@ Route::get('/restaurants/{id}/menu', [MenuItemsController::class, 'show'])->name
 Route::get('/mexican', [RestaurantController::class, 'mexican'])->name('Restaurant.mexican');
 
 
+
 Route::get('/search', 'App\Http\Controllers\RestaurantController@search')->name('search');
 
 // web.php
@@ -32,10 +34,6 @@ Route::get('/search', 'App\Http\Controllers\RestaurantController@search')->name(
 Route::get('/reservations/{reservation}/edit', [ReservationsController::class, 'edit'])->name('reservations.edit');
 Route::put('/reservations/{reservation}', [ReservationsController::class, 'update'])->name('reservations.update');
 Route::delete('/reservations/{reservation}', [ReservationsController::class, 'destroy'])->name('reservations.destroy');
-
-
-
-
 
 
 // web.php
@@ -46,7 +44,7 @@ Route::get('/reservations/user', function () {
 })->name('userReservations');
 
 
-Route::resource('/Restaurants', 'RestaurantController');
+Route::resource('restaurants', RestaurantController::class);
 
 
 Route::get('/restaurants', [App\Http\Controllers\RestaurantController::class, 'index'])->name('Restaurants.index');
@@ -76,3 +74,5 @@ require __DIR__ . '/auth.php';
 // Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::post('/restaurants', [RestaurantController::class, 'store'])->name('restaurants.store');
