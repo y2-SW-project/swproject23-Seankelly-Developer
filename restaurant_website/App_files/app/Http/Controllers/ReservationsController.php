@@ -45,6 +45,22 @@ class ReservationsController extends Controller
         return redirect()->route('userReservations')->with('success', 'Reservation cancelled successfully.');
     }
 
+    public function declineBooking($id)
+    {
+        $reservation = Reservation::find($id);
+        $reservation->delete();
+
+        return redirect()->back()->with('success', 'Reservation declined successfully!');
+    }
+    public function acceptBooking($id)
+    {
+        $reservation = Reservation::find($id);
+        $reservation->status = true;
+        $reservation->save();
+
+        return redirect()->back()->with('success', 'Reservation accepted successfully!');
+    }
+
 
 
 

@@ -24,6 +24,8 @@
                             @if(Auth::user()->role == 'restaurant owner')
                                 <a href="{{ route('restaurants.create') }}" class="btn btn-primary">Create Advertisements</a>
                             <a href="{{ route('userAds') }}" class="btn btn-primary">My Advertisements</a>
+                            <a href="{{ route('viewBookings') }}" class="btn btn-primary">View Bookings</a>
+
                         @endif
                         
                     @endauth

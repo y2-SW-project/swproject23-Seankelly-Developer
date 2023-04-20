@@ -45,6 +45,11 @@ Route::get('/reservations/user', function () {
 
 Route::get('/user-ads', [RestaurantController::class, 'getAds'])->name('userAds');
 
+Route::put('/acceptBooking/{id}', [App\Http\Controllers\ReservationsController::class, 'acceptBooking'])->name('acceptBooking');
+Route::put('/declineBooking/{id}', [App\Http\Controllers\ReservationsController::class, 'declineBooking'])->name('declineBooking');
+
+Route::get('/viewBookings', [RestaurantController::class, 'viewBookings'])->name('viewBookings');
+
 Route::delete('/userAdvertisements/{id}', [App\Http\Controllers\RestaurantController::class, 'destroy'])->name('restaurants.destroy');
 
 Route::get('/userAdvertisements/{id}/edit', [App\Http\Controllers\RestaurantController::class, 'edit'])->name('restaurants.edit');

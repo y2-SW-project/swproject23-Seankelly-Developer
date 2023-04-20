@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use App\Models\Location;
+use App\Models\Reservation;
 
 
 
@@ -121,10 +122,17 @@ class RestaurantController extends Controller
         return view('popular', compact('popularRestaurants'));
     }
 
+    public function viewBookings()
+    {
+        $user = auth()->user();
+        $restaurants = Restaurant::where('user_id', $user->id)->pluck('id');
 
+        $bookings = Reservation::whereIn('restaurant_id', $restaurants)
+            ->orderBy('created_at', 'desc')
+            ->get();
 
-
-
+        return view('viewBookings', compact('bookings'));
+    }
     /**
      * Remove the specified resource from storage.
      */
